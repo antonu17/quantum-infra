@@ -16,11 +16,17 @@ services:
   mealie:
     image: ghcr.io/mealie-recipes/mealie:v3.22.0
     restart: unless-stopped
+
     volumes:
       - mealie_data:/app/data
+
     environment:
       ALLOW_SIGNUP: "false"
-      TZ: "Europe/Berlin"
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
+      BASE_URL: https://mealie.home.antonu.org
+
     networks:
       - proxy
 
@@ -31,3 +37,5 @@ volumes:
   caddy_data:
   caddy_config:
   mealie_data:
+    external: true
+    name: pi-mealie_mealie-data
