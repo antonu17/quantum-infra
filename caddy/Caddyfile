@@ -4,3 +4,6 @@ http://mealie.home.antonu.org {
 http://pihole.home.antonu.org {
     reverse_proxy pihole:80
 }
+http://grafana.home.antonu.org {
+    reverse_proxy grafana:3000
+}
