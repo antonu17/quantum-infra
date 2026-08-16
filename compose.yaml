@@ -1,0 +1,33 @@
+services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - proxy
+
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v3.22.0
+    restart: unless-stopped
+    volumes:
+      - mealie_data:/app/data
+    environment:
+      ALLOW_SIGNUP: "false"
+      TZ: "Europe/Berlin"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+
+volumes:
+  caddy_data:
+  caddy_config:
+  mealie_data:

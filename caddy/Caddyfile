@@ -1,0 +1,3 @@
+http://mealie.home.antonu.org {
+    reverse_proxy mealie:9000
+}
