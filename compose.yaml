@@ -17,6 +17,8 @@ services:
       - caddy_config:/config
     networks:
       - proxy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   mealie:
     image: ghcr.io/mealie-recipes/mealie:v3.22.0

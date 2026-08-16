@@ -17,4 +17,19 @@
     handle @grafana {
         reverse_proxy grafana:3000
     }
+
+    @adsb host adsb.home.antonu.org
+    handle @adsb {
+        reverse_proxy host.docker.internal:3780
+    }
+
+    @fr24 host fr24.home.antonu.org
+    handle @fr24 {
+        reverse_proxy host.docker.internal:3781
+    }
+
+    @homeassistant host ha.home.antonu.org
+    handle @homeassistant {
+        reverse_proxy 192.168.100.3:8123
+    }
 }
