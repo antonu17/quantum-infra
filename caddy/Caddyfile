@@ -1,3 +1,6 @@
 http://mealie.home.antonu.org {
     reverse_proxy mealie:9000
 }
+http://pihole.home.antonu.org {
+    reverse_proxy pihole:80
+}
