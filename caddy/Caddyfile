@@ -32,4 +32,8 @@
     handle @homeassistant {
         reverse_proxy 192.168.100.3:8123
     }
+    @anki host anki-anton.home.antonu.org
+    handle @anki {
+        reverse_proxy anki-sync:8088
+    }
 }
