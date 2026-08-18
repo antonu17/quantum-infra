@@ -8,6 +8,11 @@
         reverse_proxy mealie:9000
     }
 
+    @grocy host grocy.home.antonu.org
+    handle @grocy {
+        reverse_proxy grocy:80
+    }
+
     @pihole host pihole.home.antonu.org
     handle @pihole {
         reverse_proxy pihole:80
@@ -32,6 +37,7 @@
     handle @homeassistant {
         reverse_proxy 192.168.100.3:8123
     }
+
     @anki host anki-anton.home.antonu.org
     handle @anki {
         reverse_proxy anki-sync:8088

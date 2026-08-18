@@ -20,6 +20,18 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
+    volumes:
+      - ./grocy:/config
+    networks:
+      - proxy
+
   mealie:
     image: ghcr.io/mealie-recipes/mealie:v3.22.0
     restart: unless-stopped
